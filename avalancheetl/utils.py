@@ -1,5 +1,5 @@
 # MIT License
-#
+# Modifications Copyright (c) Zhassulan Shaikhygali, shaikh.zhas@gmail.com
 # Copyright (c) 2018 Evgeny Medvedev, evge.medvedev@gmail.com
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,7 +24,7 @@
 import itertools
 import warnings
 
-from ethereumetl.misc.retriable_value_error import RetriableValueError
+from avalancheetl.misc.retriable_value_error import RetriableValueError
 
 
 def hex_to_dec(hex_string):

@@ -1,5 +1,6 @@
 # MIT License
 #
+# Modifications Copyright (c) Zhassulan Shaikhygali, shaikh.zhas@gmail.com
 # Copyright (c) 2018 Evgeny Medvedev, evge.medvedev@gmail.com
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,10 +24,10 @@
 
 from datetime import datetime, timezone
 
-from ethereumetl.service.graph_operations import GraphOperations, OutOfBoundsError, Point
+from avalancheetl.service.graph_operations import GraphOperations, OutOfBoundsError, Point
 
 
-class EthService(object):
+class AvaService(object):
     def __init__(self, web3):
         graph = BlockTimestampGraph(web3)
         self._graph_operations = GraphOperations(graph)
