@@ -11,7 +11,7 @@ long_description = read('README.md') if os.path.isfile("README.md") else ""
 
 setup(
     name='avalanche-etl',
-    version='2.1.1',
+    version='0.0.2',
     author='Zhassulan Shaikhygali',
     author_email='shaikh.zhas@gmail.com',
     description='Tools for exporting Avalanche blockchain data to CSV or JSON',
@@ -28,7 +28,7 @@ setup(
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9'
     ],
-    keywords='avalanche',
+    keywords=['avalanche', 'blockchain', 'etl'],
     python_requires='>=3.7.2,<4',
     install_requires=[
         'web3>=5.29,<6',
@@ -70,7 +70,6 @@ setup(
     },
     project_urls={
         'Bug Reports': 'https://github.com/shaikhzhas/avalanche-etl/issues',
-        'Chat': 'https://gitter.im/avalanche-etl/Lobby',
         'Source': 'https://github.com/shaikhzhas/avalanche-etl',
     },
 )

@@ -111,16 +111,6 @@ def get_partitions(start, end, partition_batch_size, provider_uri):
         raise ValueError('start and end must be either block numbers or ISO dates or Unix times')
 
 
-# @click.command(context_settings=dict(help_option_names=['-h', '--help']))
-# @click.option('-s', '--start', required=True, type=str, help='Start block/ISO date/Unix time')
-# @click.option('-e', '--end', required=True, type=str, help='End block/ISO date/Unix time')
-# @click.option('-b', '--partition-batch-size', default=10000, show_default=True, type=int, help='The number of blocks to export in partition.')
-# @click.option('-p', '--provider-uri', required = True, type=str, help='The URI of the web3 provider e.g. ')
-# @click.option('-o', '--output-dir', default='output', show_default=True, type=str, help='Output directory, partitioned in Hive style.')
-# @click.option('-w', '--max-workers', default=5, show_default=True, type=int, help='The maximum number of workers.')
-# @click.option('-B', '--export-batch-size', default=100, show_default=True, type=int, help='The number of requests in JSON RPC batches.')
-# @click.option('-c', '--chain', default='avalanche', show_default=True, type=str, help='The chain network to connect to.')
-
 # start = '2022-11-01'
 # end = '2022-11-01'
 start = '21794128'
