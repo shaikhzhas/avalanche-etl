@@ -35,11 +35,13 @@ from avalancheetl.jobs.export_contracts_job import ExportContractsJob
 from avalancheetl.jobs.export_receipts_job import ExportReceiptsJob
 from avalancheetl.jobs.export_token_transfers_job import ExportTokenTransfersJob
 from avalancheetl.jobs.export_tokens_job import ExportTokensJob
+from avalancheetl.jobs.export_traces_job import ExportTracesJob
 from avalancheetl.jobs.exporters.blocks_and_transactions_item_exporter import blocks_and_transactions_item_exporter
 from avalancheetl.jobs.exporters.contracts_item_exporter import contracts_item_exporter
 from avalancheetl.jobs.exporters.receipts_and_logs_item_exporter import receipts_and_logs_item_exporter
 from avalancheetl.jobs.exporters.token_transfers_item_exporter import token_transfers_item_exporter
 from avalancheetl.jobs.exporters.tokens_item_exporter import tokens_item_exporter
+from avalancheetl.jobs.exporters.traces_item_exporter import traces_item_exporter
 from avalancheetl.providers.auto import get_provider_from_uri
 from avalancheetl.thread_local_proxy import ThreadLocalProxy
 from avalancheetl.web3_utils import build_web3
@@ -277,6 +279,35 @@ def export_all_common(partitions, output_dir, provider_uri, max_workers, batch_s
                     item_exporter=tokens_item_exporter(tokens_file),
                     max_workers=max_workers)
                 job.run()
+
+        # # # traces # # #
+
+        traces_output_dir = '{output_dir}/traces{partition_dir}'.format(
+            output_dir=output_dir,
+            partition_dir=partition_dir,
+        )
+        os.makedirs(os.path.dirname(traces_output_dir), exist_ok=True)
+
+        traces_file = '{traces_output_dir}/traces_{file_name_suffix}.csv'.format(
+            traces_output_dir=traces_output_dir,
+            file_name_suffix=file_name_suffix,
+        )
+        logger.info('Exporting traces from blocks {block_range} to {tokens_file}'.format(
+            block_range=block_range,
+            tokens_file=tokens_file,
+        ))
+        genesis_traces = True
+        daofork_traces = True
+        job = ExportTracesJob(
+            start_block=batch_start_block,
+            end_block=batch_end_block,
+            batch_size=batch_size,
+            web3=ThreadLocalProxy(lambda: build_web3(get_provider_from_uri(provider_uri, timeout=60))),
+            item_exporter=traces_item_exporter(traces_file),
+            max_workers=max_workers,
+            include_genesis_traces=genesis_traces,
+            include_daofork_traces=daofork_traces)
+        job.run()
 
         # # # finish # # #
         shutil.rmtree(os.path.dirname(cache_output_dir))

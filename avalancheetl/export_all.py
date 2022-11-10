@@ -126,8 +126,8 @@ def get_partitions(start, end, partition_batch_size, provider_uri):
 start = '21794128'
 end = '21794150'
 partition_batch_size = 10000
-provider_uri = 'https://quick-morning-film.avalanche-mainnet.discover.quiknode.pro/151ede6bb4a566d7250a293e51cec7ebffacdd71/ext/bc/C/rpc'
-# provider_uri = 'https://avax.getblock.io/2553b132-5f35-11ed-96f0-fe4f04a5caff/mainnet/ext/bc/C/rpc'
+# provider_uri = 'https://quick-morning-film.avalanche-mainnet.discover.quiknode.pro/151ede6bb4a566d7250a293e51cec7ebffacdd71/ext/bc/C/rpc'
+provider_uri = 'https://avax.getblock.io/2553b132-5f35-11ed-96f0-fe4f04a5caff/mainnet/ext/bc/C/rpc'
 output_dir = 'output'
 max_workers = 5
 export_batch_size = 1
