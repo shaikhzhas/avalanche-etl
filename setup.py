@@ -10,7 +10,7 @@ def read(fname):
 long_description = read('README.md') if os.path.isfile("README.md") else ""
 
 setup(
-    name='ethereum-etl',
+    name='avalanche-etl',
     version='2.1.1',
     author='Zhassulan Shaikhygali',
     author_email='shaikh.zhas@gmail.com',
