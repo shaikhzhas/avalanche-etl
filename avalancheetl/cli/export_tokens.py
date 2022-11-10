@@ -42,11 +42,9 @@ logging_basic_config()
               help='The file containing token addresses, one per line.')
 @click.option('-o', '--output', default='-', show_default=True, type=str, help='The output file. If not specified stdout is used.')
 @click.option('-w', '--max-workers', default=5, show_default=True, type=int, help='The maximum number of workers.')
-@click.option('-p', '--provider-uri', default='https://mainnet.infura.io', show_default=True, type=str,
-              help='The URI of the web3 provider e.g. '
-                   'file://$HOME/Library/Ethereum/geth.ipc or https://mainnet.infura.io')
-@click.option('-c', '--chain', default='ethereum', show_default=True, type=str, help='The chain network to connect to.')
-def export_tokens(token_addresses, output, max_workers, provider_uri, chain='ethereum'):
+@click.option('-p', '--provider-uri', required = True, type=str, help='The URI of the web3 provider e.g. ')
+@click.option('-c', '--chain', default='avalanche', show_default=True, type=str, help='The chain network to connect to.')
+def export_tokens(token_addresses, output, max_workers, provider_uri, chain='avalanche'):
     """Exports ERC20/ERC721 tokens."""
     provider_uri = check_classic_provider_uri(chain, provider_uri)
     with smart_open(token_addresses, 'r') as token_addresses_file:

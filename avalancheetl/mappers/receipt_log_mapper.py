@@ -22,14 +22,14 @@
 # SOFTWARE.
 
 
-from avalancheetl.domain.receipt_log import EthReceiptLog
+from avalancheetl.domain.receipt_log import AvaReceiptLog
 from avalancheetl.utils import hex_to_dec
 
 
-class EthReceiptLogMapper(object):
+class AvaReceiptLogMapper(object):
 
     def json_dict_to_receipt_log(self, json_dict):
-        receipt_log = EthReceiptLog()
+        receipt_log = AvaReceiptLog()
 
         receipt_log.log_index = hex_to_dec(json_dict.get('logIndex'))
         receipt_log.transaction_hash = json_dict.get('transactionHash')
@@ -44,7 +44,7 @@ class EthReceiptLogMapper(object):
 
     def web3_dict_to_receipt_log(self, dict):
 
-        receipt_log = EthReceiptLog()
+        receipt_log = AvaReceiptLog()
 
         receipt_log.log_index = dict.get('logIndex')
 
@@ -81,7 +81,7 @@ class EthReceiptLogMapper(object):
         }
 
     def dict_to_receipt_log(self, dict):
-        receipt_log = EthReceiptLog()
+        receipt_log = AvaReceiptLog()
 
         receipt_log.log_index = dict.get('log_index')
         receipt_log.transaction_hash = dict.get('transaction_hash')

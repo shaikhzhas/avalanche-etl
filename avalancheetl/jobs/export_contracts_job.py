@@ -27,9 +27,9 @@ import json
 from avalancheetl.executors.batch_work_executor import BatchWorkExecutor
 from blockchainetl.jobs.base_job import BaseJob
 from avalancheetl.json_rpc_requests import generate_get_code_json_rpc
-from avalancheetl.mappers.contract_mapper import EthContractMapper
+from avalancheetl.mappers.contract_mapper import AvaContractMapper
 
-from avalancheetl.service.eth_contract_service import EthContractService
+from avalancheetl.service.ava_contract_service import AvaContractService
 from avalancheetl.utils import rpc_response_to_result
 
 
@@ -48,8 +48,8 @@ class ExportContractsJob(BaseJob):
         self.batch_work_executor = BatchWorkExecutor(batch_size, max_workers)
         self.item_exporter = item_exporter
 
-        self.contract_service = EthContractService()
-        self.contract_mapper = EthContractMapper()
+        self.contract_service = AvaContractService()
+        self.contract_mapper = AvaContractMapper()
 
     def _start(self):
         self.item_exporter.open()

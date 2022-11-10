@@ -20,11 +20,10 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 from eth_utils import function_signature_to_4byte_selector
-
 from ethereum_dasm.evmdasm import EvmCode, Contract
 
 
-class EthContractService:
+class AvaContractService:
 
     def get_function_sighashes(self, bytecode):
         bytecode = clean_bytecode(bytecode)

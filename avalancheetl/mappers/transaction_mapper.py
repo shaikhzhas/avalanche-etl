@@ -22,13 +22,13 @@
 # SOFTWARE.
 
 
-from avalancheetl.domain.transaction import EthTransaction
+from avalancheetl.domain.transaction import AvaTransaction
 from avalancheetl.utils import hex_to_dec, to_normalized_address
 
 
-class EthTransactionMapper(object):
+class AvaTransactionMapper(object):
     def json_dict_to_transaction(self, json_dict, **kwargs):
-        transaction = EthTransaction()
+        transaction = AvaTransaction()
         transaction.hash = json_dict.get('hash')
         transaction.nonce = hex_to_dec(json_dict.get('nonce'))
         transaction.block_hash = json_dict.get('blockHash')

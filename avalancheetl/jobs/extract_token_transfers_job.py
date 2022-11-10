@@ -23,9 +23,9 @@
 
 from avalancheetl.executors.batch_work_executor import BatchWorkExecutor
 from blockchainetl.jobs.base_job import BaseJob
-from avalancheetl.mappers.token_transfer_mapper import EthTokenTransferMapper
-from avalancheetl.mappers.receipt_log_mapper import EthReceiptLogMapper
-from avalancheetl.service.token_transfer_extractor import EthTokenTransferExtractor
+from avalancheetl.mappers.token_transfer_mapper import AvaTokenTransferMapper
+from avalancheetl.mappers.receipt_log_mapper import AvaReceiptLogMapper
+from avalancheetl.service.token_transfer_extractor import AvaTokenTransferExtractor
 
 
 class ExtractTokenTransfersJob(BaseJob):
@@ -40,9 +40,9 @@ class ExtractTokenTransfersJob(BaseJob):
         self.batch_work_executor = BatchWorkExecutor(batch_size, max_workers)
         self.item_exporter = item_exporter
 
-        self.receipt_log_mapper = EthReceiptLogMapper()
-        self.token_transfer_mapper = EthTokenTransferMapper()
-        self.token_transfer_extractor = EthTokenTransferExtractor()
+        self.receipt_log_mapper = AvaReceiptLogMapper()
+        self.token_transfer_mapper = AvaTokenTransferMapper()
+        self.token_transfer_extractor = AvaTokenTransferExtractor()
 
     def _start(self):
         self.item_exporter.open()

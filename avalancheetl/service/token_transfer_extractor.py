@@ -25,7 +25,7 @@
 import logging
 from builtins import map
 
-from avalancheetl.domain.token_transfer import EthTokenTransfer
+from avalancheetl.domain.token_transfer import AvaTokenTransfer
 from avalancheetl.utils import chunk_string, hex_to_dec, to_normalized_address
 
 # https://ethereum.stackexchange.com/questions/12553/understanding-logs-and-log-blooms
@@ -33,7 +33,7 @@ TRANSFER_EVENT_TOPIC = '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a
 logger = logging.getLogger(__name__)
 
 
-class EthTokenTransferExtractor(object):
+class AvaTokenTransferExtractor(object):
     def extract_transfer_from_log(self, receipt_log):
 
         topics = receipt_log.topics
@@ -50,7 +50,7 @@ class EthTokenTransferExtractor(object):
                                .format(receipt_log.log_index, receipt_log.transaction_hash))
                 return None
 
-            token_transfer = EthTokenTransfer()
+            token_transfer = AvaTokenTransfer()
             token_transfer.token_address = to_normalized_address(receipt_log.address)
             token_transfer.from_address = word_to_address(topics_with_data[1])
             token_transfer.to_address = word_to_address(topics_with_data[2])

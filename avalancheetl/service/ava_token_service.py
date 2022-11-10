@@ -24,13 +24,13 @@ import logging
 
 from web3.exceptions import BadFunctionCallOutput, ContractLogicError
 
-from avalancheetl.domain.token import EthToken
+from avalancheetl.domain.token import AvaToken
 from avalancheetl.erc20_abi import ERC20_ABI, ERC20_ABI_ALTERNATIVE_1
 
-logger = logging.getLogger('eth_token_service')
+logger = logging.getLogger('ava_token_service')
 
 
-class EthTokenService(object):
+class AvaTokenService(object):
     def __init__(self, web3, function_call_result_transformer=None):
         self._web3 = web3
         self._function_call_result_transformer = function_call_result_transformer
@@ -61,7 +61,7 @@ class EthTokenService(object):
         decimals = self._get_first_result(contract.functions.decimals(), contract.functions.DECIMALS())
         total_supply = self._get_first_result(contract.functions.totalSupply())
 
-        token = EthToken()
+        token = AvaToken()
         token.address = token_address
         token.symbol = symbol
         token.name = name

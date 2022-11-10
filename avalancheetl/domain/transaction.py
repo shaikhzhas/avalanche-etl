@@ -21,7 +21,7 @@
 # SOFTWARE.
 
 
-class EthTransaction(object):
+class AvaTransaction(object):
     def __init__(self):
         self.hash = None
         self.nonce = None

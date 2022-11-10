@@ -22,20 +22,20 @@
 # SOFTWARE.
 
 
-from avalancheetl.domain.receipt import EthReceipt
-from avalancheetl.mappers.receipt_log_mapper import EthReceiptLogMapper
+from avalancheetl.domain.receipt import AvaReceipt
+from avalancheetl.mappers.receipt_log_mapper import AvaReceiptLogMapper
 from avalancheetl.utils import hex_to_dec, to_normalized_address
 
 
-class EthReceiptMapper(object):
+class AvaReceiptMapper(object):
     def __init__(self, receipt_log_mapper=None):
         if receipt_log_mapper is None:
-            self.receipt_log_mapper = EthReceiptLogMapper()
+            self.receipt_log_mapper = AvaReceiptLogMapper()
         else:
             self.receipt_log_mapper = receipt_log_mapper
 
     def json_dict_to_receipt(self, json_dict):
-        receipt = EthReceipt()
+        receipt = AvaReceipt()
 
         receipt.transaction_hash = json_dict.get('transactionHash')
         receipt.transaction_index = hex_to_dec(json_dict.get('transactionIndex'))

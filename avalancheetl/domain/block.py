@@ -21,7 +21,7 @@
 # SOFTWARE.
 
 
-class EthBlock(object):
+class AvaBlock(object):
     def __init__(self):
         self.number = None
         self.hash = None

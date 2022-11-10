@@ -39,18 +39,16 @@ logging_basic_config()
 @click.option('-b', '--batch-size', default=100, show_default=True, type=int, help='The number of receipts to export at a time.')
 @click.option('-t', '--transaction-hashes', required=True, type=str,
               help='The file containing transaction hashes, one per line.')
-@click.option('-p', '--provider-uri', default='https://mainnet.infura.io', show_default=True, type=str,
-              help='The URI of the web3 provider e.g. '
-                   'file://$HOME/Library/Ethereum/geth.ipc or https://mainnet.infura.io')
+@click.option('-p', '--provider-uri', required = True, type=str, help='The URI of the web3 provider e.g. ')
 @click.option('-w', '--max-workers', default=5, show_default=True, type=int, help='The maximum number of workers.')
 @click.option('--receipts-output', default=None, show_default=True, type=str,
               help='The output file for receipts. If not provided receipts will not be exported. Use "-" for stdout')
 @click.option('--logs-output', default=None, show_default=True, type=str,
               help='The output file for receipt logs. '
                    'If not provided receipt logs will not be exported. Use "-" for stdout')
-@click.option('-c', '--chain', default='ethereum', show_default=True, type=str, help='The chain network to connect to.')
+@click.option('-c', '--chain', default='avalanche', show_default=True, type=str, help='The chain network to connect to.')
 def export_receipts_and_logs(batch_size, transaction_hashes, provider_uri, max_workers, receipts_output, logs_output,
-                             chain='ethereum'):
+                             chain='avalanche'):
     """Exports receipts and logs."""
     provider_uri = check_classic_provider_uri(chain, provider_uri)
     with smart_open(transaction_hashes, 'r') as transaction_hashes_file:

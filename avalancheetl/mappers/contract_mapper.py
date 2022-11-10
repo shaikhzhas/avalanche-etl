@@ -22,13 +22,13 @@
 # SOFTWARE.
 
 
-from avalancheetl.domain.contract import EthContract
+from avalancheetl.domain.contract import AvaContract
 
 
-class EthContractMapper(object):
+class AvaContractMapper(object):
 
     def rpc_result_to_contract(self, contract_address, rpc_result):
-        contract = EthContract()
+        contract = AvaContract()
         contract.address = contract_address
         contract.bytecode = rpc_result
 

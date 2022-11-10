@@ -21,7 +21,7 @@
 # SOFTWARE.
 
 
-class EthTokenMapper(object):
+class AvaTokenMapper(object):
     def token_to_dict(self, token):
         return {
             'type': 'token',

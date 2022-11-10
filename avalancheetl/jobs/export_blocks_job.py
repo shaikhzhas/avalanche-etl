@@ -27,8 +27,8 @@ import json
 from avalancheetl.executors.batch_work_executor import BatchWorkExecutor
 from blockchainetl.jobs.base_job import BaseJob
 from avalancheetl.json_rpc_requests import generate_get_block_by_number_json_rpc
-from avalancheetl.mappers.block_mapper import EthBlockMapper
-from avalancheetl.mappers.transaction_mapper import EthTransactionMapper
+from avalancheetl.mappers.block_mapper import AvaBlockMapper
+from avalancheetl.mappers.transaction_mapper import AvaTransactionMapper
 from avalancheetl.utils import rpc_response_batch_to_results, validate_range
 
 
@@ -58,8 +58,8 @@ class ExportBlocksJob(BaseJob):
         if not self.export_blocks and not self.export_transactions:
             raise ValueError('At least one of export_blocks or export_transactions must be True')
 
-        self.block_mapper = EthBlockMapper()
-        self.transaction_mapper = EthTransactionMapper()
+        self.block_mapper = AvaBlockMapper()
+        self.transaction_mapper = AvaTransactionMapper()
 
     def _start(self):
         self.item_exporter.open()

@@ -21,7 +21,7 @@
 # SOFTWARE.
 
 
-class EthContract(object):
+class AvaContract(object):
     def __init__(self):
         self.address = None
         self.bytecode = None

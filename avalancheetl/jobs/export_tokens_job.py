@@ -24,8 +24,8 @@
 
 from avalancheetl.executors.batch_work_executor import BatchWorkExecutor
 from blockchainetl.jobs.base_job import BaseJob
-from avalancheetl.mappers.token_mapper import EthTokenMapper
-from avalancheetl.service.eth_token_service import EthTokenService
+from avalancheetl.mappers.token_mapper import AvaTokenMapper
+from avalancheetl.service.ava_token_service import AvaTokenService
 
 
 class ExportTokensJob(BaseJob):
@@ -34,8 +34,8 @@ class ExportTokensJob(BaseJob):
         self.token_addresses_iterable = token_addresses_iterable
         self.batch_work_executor = BatchWorkExecutor(1, max_workers)
 
-        self.token_service = EthTokenService(web3, clean_user_provided_content)
-        self.token_mapper = EthTokenMapper()
+        self.token_service = AvaTokenService(web3, clean_user_provided_content)
+        self.token_mapper = AvaTokenMapper()
 
     def _start(self):
         self.item_exporter.open()

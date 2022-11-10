@@ -21,7 +21,7 @@
 # SOFTWARE.
 
 
-class EthReceiptLog(object):
+class AvaReceiptLog(object):
     def __init__(self):
         self.log_index = None
         self.transaction_hash = None

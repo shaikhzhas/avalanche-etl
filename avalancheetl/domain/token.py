@@ -21,7 +21,7 @@
 # SOFTWARE.
 
 
-class EthToken(object):
+class AvaToken(object):
     def __init__(self):
         self.address = None
         self.symbol = None

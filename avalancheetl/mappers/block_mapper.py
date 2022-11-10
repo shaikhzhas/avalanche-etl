@@ -22,20 +22,20 @@
 # SOFTWARE.
 
 
-from avalancheetl.domain.block import EthBlock
-from avalancheetl.mappers.transaction_mapper import EthTransactionMapper
+from avalancheetl.domain.block import AvaBlock
+from avalancheetl.mappers.transaction_mapper import AvaTransactionMapper
 from avalancheetl.utils import hex_to_dec, to_normalized_address
 
 
-class EthBlockMapper(object):
+class AvaBlockMapper(object):
     def __init__(self, transaction_mapper=None):
         if transaction_mapper is None:
-            self.transaction_mapper = EthTransactionMapper()
+            self.transaction_mapper = AvaTransactionMapper()
         else:
             self.transaction_mapper = transaction_mapper
 
     def json_dict_to_block(self, json_dict):
-        block = EthBlock()
+        block = AvaBlock()
         block.number = hex_to_dec(json_dict.get('number'))
         block.hash = json_dict.get('hash')
         block.parent_hash = json_dict.get('parentHash')
