@@ -1,5 +1,6 @@
 # MIT License
 #
+# Modifications Copyright (c) Zhassulan Shaikhygali, shaikh.zhas@gmail.com
 # Copyright (c) 2018 Evgeniy Filatov, evgeniyfilatov@gmail.com
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,10 +21,10 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from ethereumetl.executors.batch_work_executor import BatchWorkExecutor
+from avalancheetl.executors.batch_work_executor import BatchWorkExecutor
 from blockchainetl.jobs.base_job import BaseJob
-from ethereumetl.mappers.trace_mapper import EthTraceMapper
-from ethereumetl.mappers.geth_trace_mapper import EthGethTraceMapper
+from avalancheetl.mappers.trace_mapper import EthTraceMapper
+from avalancheetl.mappers.geth_trace_mapper import EthGethTraceMapper
 
 
 class ExtractGethTracesJob(BaseJob):

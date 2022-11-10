@@ -1,5 +1,6 @@
 # MIT License
 #
+# Modifications Copyright (c) Zhassulan Shaikhygali, shaikh.zhas@gmail.com
 # Copyright (c) 2018 Evgeny Medvedev, evge.medvedev@gmail.com
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -27,8 +28,8 @@ import json
 import click
 from blockchainetl.csv_utils import set_max_field_size_limit
 from blockchainetl.file_utils import smart_open
-from ethereumetl.jobs.exporters.contracts_item_exporter import contracts_item_exporter
-from ethereumetl.jobs.extract_contracts_job import ExtractContractsJob
+from avalancheetl.jobs.exporters.contracts_item_exporter import contracts_item_exporter
+from avalancheetl.jobs.extract_contracts_job import ExtractContractsJob
 from blockchainetl.logging_utils import logging_basic_config
 
 logging_basic_config()

@@ -1,5 +1,6 @@
 # MIT License
 #
+# Modifications Copyright (c) Zhassulan Shaikhygali, shaikh.zhas@gmail.com
 # Copyright (c) 2018 Evgeny Medvedev, evge.medvedev@gmail.com
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -26,11 +27,11 @@ import time
 from requests.exceptions import Timeout as RequestsTimeout, HTTPError, TooManyRedirects
 from web3._utils.threads import Timeout as Web3Timeout
 
-from ethereumetl.executors.bounded_executor import BoundedExecutor
-from ethereumetl.executors.fail_safe_executor import FailSafeExecutor
-from ethereumetl.misc.retriable_value_error import RetriableValueError
-from ethereumetl.progress_logger import ProgressLogger
-from ethereumetl.utils import dynamic_batch_iterator
+from avalancheetl.executors.bounded_executor import BoundedExecutor
+from avalancheetl.executors.fail_safe_executor import FailSafeExecutor
+from avalancheetl.misc.retriable_value_error import RetriableValueError
+from avalancheetl.progress_logger import ProgressLogger
+from avalancheetl.utils import dynamic_batch_iterator
 
 RETRY_EXCEPTIONS = (ConnectionError, HTTPError, RequestsTimeout, TooManyRedirects, Web3Timeout, OSError,
                     RetriableValueError)

@@ -1,5 +1,6 @@
 # MIT License
 #
+# Modifications Copyright (c) Zhassulan Shaikhygali, shaikh.zhas@gmail.com
 # Copyright (c) 2018 Evgeny Medvedev, evge.medvedev@gmail.com
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,7 +24,7 @@
 import logging
 from datetime import datetime
 
-from ethereumetl.atomic_counter import AtomicCounter
+from avalancheetl.atomic_counter import AtomicCounter
 
 
 # Thread safe progress logger.

@@ -1,5 +1,6 @@
 # MIT License
 #
+# Modifications Copyright (c) Zhassulan Shaikhygali, shaikh.zhas@gmail.com
 # Copyright (c) 2018 Evgeny Medvedev, evge.medvedev@gmail.com
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -21,9 +22,9 @@
 # SOFTWARE.
 
 
-from ethereumetl.domain.receipt import EthReceipt
-from ethereumetl.mappers.receipt_log_mapper import EthReceiptLogMapper
-from ethereumetl.utils import hex_to_dec, to_normalized_address
+from avalancheetl.domain.receipt import EthReceipt
+from avalancheetl.mappers.receipt_log_mapper import EthReceiptLogMapper
+from avalancheetl.utils import hex_to_dec, to_normalized_address
 
 
 class EthReceiptMapper(object):

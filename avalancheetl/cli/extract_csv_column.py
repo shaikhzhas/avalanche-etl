@@ -1,5 +1,6 @@
 # MIT License
 #
+# Modifications Copyright (c) Zhassulan Shaikhygali, shaikh.zhas@gmail.com
 # Copyright (c) 2018 Evgeny Medvedev, evge.medvedev@gmail.com
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,7 +25,7 @@
 import click
 import csv
 
-from ethereumetl.csv_utils import set_max_field_size_limit
+from avalancheetl.csv_utils import set_max_field_size_limit
 from blockchainetl.file_utils import smart_open
 
 

@@ -1,5 +1,6 @@
 # MIT License
 #
+# Modifications Copyright (c) Zhassulan Shaikhygali, shaikh.zhas@gmail.com
 # Copyright (c) 2018 Evgeny Medvedev, evge.medvedev@gmail.com
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,11 +25,11 @@
 import json
 
 from blockchainetl.jobs.base_job import BaseJob
-from ethereumetl.executors.batch_work_executor import BatchWorkExecutor
-from ethereumetl.json_rpc_requests import generate_get_receipt_json_rpc
-from ethereumetl.mappers.receipt_log_mapper import EthReceiptLogMapper
-from ethereumetl.mappers.receipt_mapper import EthReceiptMapper
-from ethereumetl.utils import rpc_response_batch_to_results
+from avalancheetl.executors.batch_work_executor import BatchWorkExecutor
+from avalancheetl.json_rpc_requests import generate_get_receipt_json_rpc
+from avalancheetl.mappers.receipt_log_mapper import EthReceiptLogMapper
+from avalancheetl.mappers.receipt_mapper import EthReceiptMapper
+from avalancheetl.utils import rpc_response_batch_to_results
 
 
 # Exports receipts and logs

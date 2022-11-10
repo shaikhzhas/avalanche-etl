@@ -1,5 +1,6 @@
 # MIT License
 #
+# Modifications Copyright (c) Zhassulan Shaikhygali, shaikh.zhas@gmail.com
 # Copyright (c) 2018 Evgeniy Filatov, evgeniyfilatov@gmail.com
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,11 +23,11 @@
 
 import json
 
-from ethereumetl.executors.batch_work_executor import BatchWorkExecutor
-from ethereumetl.json_rpc_requests import generate_trace_block_by_number_json_rpc
+from avalancheetl.executors.batch_work_executor import BatchWorkExecutor
+from avalancheetl.json_rpc_requests import generate_trace_block_by_number_json_rpc
 from blockchainetl.jobs.base_job import BaseJob
-from ethereumetl.mappers.geth_trace_mapper import EthGethTraceMapper
-from ethereumetl.utils import validate_range, rpc_response_to_result
+from avalancheetl.mappers.geth_trace_mapper import EthGethTraceMapper
+from avalancheetl.utils import validate_range, rpc_response_to_result
 
 
 # Exports geth traces

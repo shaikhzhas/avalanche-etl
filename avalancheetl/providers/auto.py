@@ -1,5 +1,6 @@
 # MIT License
 #
+# Modifications Copyright (c) Zhassulan Shaikhygali, shaikh.zhas@gmail.com
 # Copyright (c) 2018 Evgeny Medvedev, evge.medvedev@gmail.com
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,8 +26,8 @@ from urllib.parse import urlparse
 
 from web3 import IPCProvider, HTTPProvider
 
-from ethereumetl.providers.ipc import BatchIPCProvider
-from ethereumetl.providers.rpc import BatchHTTPProvider
+from avalancheetl.providers.ipc import BatchIPCProvider
+from avalancheetl.providers.rpc import BatchHTTPProvider
 
 DEFAULT_TIMEOUT = 60
 

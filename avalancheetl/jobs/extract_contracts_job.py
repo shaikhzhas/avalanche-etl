@@ -1,5 +1,6 @@
 # MIT License
 #
+# Modifications Copyright (c) Zhassulan Shaikhygali, shaikh.zhas@gmail.com
 # Copyright (c) 2018 Evgeny Medvedev, evge.medvedev@gmail.com
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -21,13 +22,13 @@
 # SOFTWARE.
 
 
-from ethereumetl.domain.contract import EthContract
-from ethereumetl.executors.batch_work_executor import BatchWorkExecutor
+from avalancheetl.domain.contract import EthContract
+from avalancheetl.executors.batch_work_executor import BatchWorkExecutor
 from blockchainetl.jobs.base_job import BaseJob
-from ethereumetl.mappers.contract_mapper import EthContractMapper
+from avalancheetl.mappers.contract_mapper import EthContractMapper
 
-from ethereumetl.service.eth_contract_service import EthContractService
-from ethereumetl.utils import to_int_or_none
+from avalancheetl.service.eth_contract_service import EthContractService
+from avalancheetl.utils import to_int_or_none
 
 
 # Extract contracts

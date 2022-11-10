@@ -1,5 +1,6 @@
 # MIT License
 #
+# Modifications Copyright (c) Zhassulan Shaikhygali, shaikh.zhas@gmail.com
 # Copyright (c) 2018 Evgeny Medvedev, evge.medvedev@gmail.com
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,11 +26,11 @@ import click
 import csv
 import json
 
-from ethereumetl.csv_utils import set_max_field_size_limit
+from avalancheetl.csv_utils import set_max_field_size_limit
 from blockchainetl.file_utils import smart_open
 from blockchainetl.jobs.exporters.converters.int_to_string_item_converter import IntToStringItemConverter
-from ethereumetl.jobs.exporters.token_transfers_item_exporter import token_transfers_item_exporter
-from ethereumetl.jobs.extract_token_transfers_job import ExtractTokenTransfersJob
+from avalancheetl.jobs.exporters.token_transfers_item_exporter import token_transfers_item_exporter
+from avalancheetl.jobs.extract_token_transfers_job import ExtractTokenTransfersJob
 from blockchainetl.logging_utils import logging_basic_config
 
 logging_basic_config()

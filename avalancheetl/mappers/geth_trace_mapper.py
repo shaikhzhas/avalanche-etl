@@ -1,5 +1,6 @@
 # MIT License
 #
+# Modifications Copyright (c) Zhassulan Shaikhygali, shaikh.zhas@gmail.com
 # Copyright (c) 2018 Evgeniy Filatov, evgeniyfilatov@gmail.com
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -21,7 +22,7 @@
 # SOFTWARE.
 
 
-from ethereumetl.domain.geth_trace import EthGethTrace
+from avalancheetl.domain.geth_trace import EthGethTrace
 
 
 class EthGethTraceMapper(object):

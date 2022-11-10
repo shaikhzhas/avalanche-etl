@@ -1,5 +1,6 @@
 # MIT License
 #
+# Modifications Copyright (c) Zhassulan Shaikhygali, shaikh.zhas@gmail.com
 # Copyright (c) 2018 Evgeny Medvedev, evge.medvedev@gmail.com
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,14 +24,14 @@
 
 import click
 
-from ethereumetl.web3_utils import build_web3
+from avalancheetl.web3_utils import build_web3
 
-from ethereumetl.csv_utils import set_max_field_size_limit
-from ethereumetl.jobs.export_token_transfers_job import ExportTokenTransfersJob
-from ethereumetl.jobs.exporters.token_transfers_item_exporter import token_transfers_item_exporter
+from avalancheetl.csv_utils import set_max_field_size_limit
+from avalancheetl.jobs.export_token_transfers_job import ExportTokenTransfersJob
+from avalancheetl.jobs.exporters.token_transfers_item_exporter import token_transfers_item_exporter
 from blockchainetl.logging_utils import logging_basic_config
-from ethereumetl.providers.auto import get_provider_from_uri
-from ethereumetl.thread_local_proxy import ThreadLocalProxy
+from avalancheetl.providers.auto import get_provider_from_uri
+from avalancheetl.thread_local_proxy import ThreadLocalProxy
 
 logging_basic_config()
 

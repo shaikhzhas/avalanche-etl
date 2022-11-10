@@ -1,5 +1,6 @@
 # MIT License
 #
+# Modifications Copyright (c) Zhassulan Shaikhygali, shaikh.zhas@gmail.com
 # Copyright (c) 2018 Evgeny Medvedev, evge.medvedev@gmail.com
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -21,6 +22,6 @@
 # SOFTWARE.
 
 
-from ethereumetl.cli import cli
+from avalancheetl.cli import cli
 
 cli()

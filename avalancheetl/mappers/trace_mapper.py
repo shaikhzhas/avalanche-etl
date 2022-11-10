@@ -1,5 +1,6 @@
 # MIT License
 #
+# Modifications Copyright (c) Zhassulan Shaikhygali, shaikh.zhas@gmail.com
 # Copyright (c) 2018 Evgeniy Filatov, evgeniyfilatov@gmail.com
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -21,9 +22,9 @@
 # SOFTWARE.
 
 
-from ethereumetl.domain.trace import EthTrace
-from ethereumetl.mainnet_daofork_state_changes import DAOFORK_BLOCK_NUMBER
-from ethereumetl.utils import hex_to_dec, to_normalized_address
+from avalancheetl.domain.trace import EthTrace
+from avalancheetl.mainnet_daofork_state_changes import DAOFORK_BLOCK_NUMBER
+from avalancheetl.utils import hex_to_dec, to_normalized_address
 
 
 class EthTraceMapper(object):

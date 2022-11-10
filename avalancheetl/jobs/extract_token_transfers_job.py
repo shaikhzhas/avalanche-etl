@@ -1,5 +1,6 @@
 # MIT License
 #
+# Modifications Copyright (c) Zhassulan Shaikhygali, shaikh.zhas@gmail.com
 # Copyright (c) 2018 Evgeny Medvedev, evge.medvedev@gmail.com
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,11 +21,11 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from ethereumetl.executors.batch_work_executor import BatchWorkExecutor
+from avalancheetl.executors.batch_work_executor import BatchWorkExecutor
 from blockchainetl.jobs.base_job import BaseJob
-from ethereumetl.mappers.token_transfer_mapper import EthTokenTransferMapper
-from ethereumetl.mappers.receipt_log_mapper import EthReceiptLogMapper
-from ethereumetl.service.token_transfer_extractor import EthTokenTransferExtractor
+from avalancheetl.mappers.token_transfer_mapper import EthTokenTransferMapper
+from avalancheetl.mappers.receipt_log_mapper import EthReceiptLogMapper
+from avalancheetl.service.token_transfer_extractor import EthTokenTransferExtractor
 
 
 class ExtractTokenTransfersJob(BaseJob):

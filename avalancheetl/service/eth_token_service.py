@@ -1,5 +1,6 @@
 # MIT License
 #
+# Modifications Copyright (c) Zhassulan Shaikhygali, shaikh.zhas@gmail.com
 # Copyright (c) 2018 Evgeny Medvedev, evge.medvedev@gmail.com
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,8 +24,8 @@ import logging
 
 from web3.exceptions import BadFunctionCallOutput, ContractLogicError
 
-from ethereumetl.domain.token import EthToken
-from ethereumetl.erc20_abi import ERC20_ABI, ERC20_ABI_ALTERNATIVE_1
+from avalancheetl.domain.token import EthToken
+from avalancheetl.erc20_abi import ERC20_ABI, ERC20_ABI_ALTERNATIVE_1
 
 logger = logging.getLogger('eth_token_service')
 

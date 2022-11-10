@@ -22,18 +22,24 @@
 # SOFTWARE.
 
 
-import click
+# import click
 import re
-
 from datetime import datetime, timedelta
+import sys
+import os
 
-from blockchainetl.logging_utils import logging_basic_config
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../avalancheetl')))
+
+print(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from avalancheetl.web3_utils import build_web3
-
 from avalancheetl.jobs.export_all_common import export_all_common
 from avalancheetl.providers.auto import get_provider_from_uri
 from avalancheetl.service.ava_service import AvaService
 from avalancheetl.utils import check_classic_provider_uri
+from blockchainetl.logging_utils import logging_basic_config
+
 
 logging_basic_config()
 
@@ -105,21 +111,39 @@ def get_partitions(start, end, partition_batch_size, provider_uri):
         raise ValueError('start and end must be either block numbers or ISO dates or Unix times')
 
 
-@click.command(context_settings=dict(help_option_names=['-h', '--help']))
-@click.option('-s', '--start', required=True, type=str, help='Start block/ISO date/Unix time')
-@click.option('-e', '--end', required=True, type=str, help='End block/ISO date/Unix time')
-@click.option('-b', '--partition-batch-size', default=10000, show_default=True, type=int,
-              help='The number of blocks to export in partition.')
-@click.option('-p', '--provider-uri', default='https://mainnet.infura.io', show_default=True, type=str,
-              help='The URI of the web3 provider e.g. '
-                   'file://$HOME/Library/Ethereum/geth.ipc or https://mainnet.infura.io')
-@click.option('-o', '--output-dir', default='output', show_default=True, type=str, help='Output directory, partitioned in Hive style.')
-@click.option('-w', '--max-workers', default=5, show_default=True, type=int, help='The maximum number of workers.')
-@click.option('-B', '--export-batch-size', default=100, show_default=True, type=int, help='The number of requests in JSON RPC batches.')
-@click.option('-c', '--chain', default='ethereum', show_default=True, type=str, help='The chain network to connect to.')
-def export_all(start, end, partition_batch_size, provider_uri, output_dir, max_workers, export_batch_size,
-               chain='ethereum'):
+# @click.command(context_settings=dict(help_option_names=['-h', '--help']))
+# @click.option('-s', '--start', required=True, type=str, help='Start block/ISO date/Unix time')
+# @click.option('-e', '--end', required=True, type=str, help='End block/ISO date/Unix time')
+# @click.option('-b', '--partition-batch-size', default=10000, show_default=True, type=int, help='The number of blocks to export in partition.')
+# @click.option('-p', '--provider-uri', required = True, type=str, help='The URI of the web3 provider e.g. ')
+# @click.option('-o', '--output-dir', default='output', show_default=True, type=str, help='Output directory, partitioned in Hive style.')
+# @click.option('-w', '--max-workers', default=5, show_default=True, type=int, help='The maximum number of workers.')
+# @click.option('-B', '--export-batch-size', default=100, show_default=True, type=int, help='The number of requests in JSON RPC batches.')
+# @click.option('-c', '--chain', default='avalanche', show_default=True, type=str, help='The chain network to connect to.')
+
+# start = '2022-11-01'
+# end = '2022-11-01'
+start = '21794128'
+end = '21794150'
+partition_batch_size = 10000
+provider_uri = 'https://quick-morning-film.avalanche-mainnet.discover.quiknode.pro/151ede6bb4a566d7250a293e51cec7ebffacdd71/ext/bc/C/rpc'
+# provider_uri = 'https://avax.getblock.io/2553b132-5f35-11ed-96f0-fe4f04a5caff/mainnet/ext/bc/C/rpc'
+output_dir = 'output'
+max_workers = 5
+export_batch_size = 1
+def export_all(
+    start,
+    end,
+    partition_batch_size,
+    provider_uri,
+    output_dir,
+    max_workers,
+    export_batch_size,
+    chain='avalanche'
+):
     """Exports all data for a range of blocks."""
     provider_uri = check_classic_provider_uri(chain, provider_uri)
     export_all_common(get_partitions(start, end, partition_batch_size, provider_uri),
                       output_dir, provider_uri, max_workers, export_batch_size)
+
+export_all(start=start, end=end, partition_batch_size=partition_batch_size, provider_uri=provider_uri, output_dir=output_dir, max_workers=max_workers, export_batch_size=export_batch_size)

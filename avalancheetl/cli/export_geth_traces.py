@@ -1,5 +1,6 @@
 # MIT License
 #
+# Modifications Copyright (c) Zhassulan Shaikhygali, shaikh.zhas@gmail.com
 # Copyright (c) 2018 Evgeniy Filatov, evgeniyfilatov@gmail.com
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,11 +24,11 @@
 
 import click
 
-from ethereumetl.jobs.export_geth_traces_job import ExportGethTracesJob
-from ethereumetl.jobs.exporters.geth_traces_item_exporter import geth_traces_item_exporter
+from avalancheetl.jobs.export_geth_traces_job import ExportGethTracesJob
+from avalancheetl.jobs.exporters.geth_traces_item_exporter import geth_traces_item_exporter
 from blockchainetl.logging_utils import logging_basic_config
-from ethereumetl.providers.auto import get_provider_from_uri
-from ethereumetl.thread_local_proxy import ThreadLocalProxy
+from avalancheetl.providers.auto import get_provider_from_uri
+from avalancheetl.thread_local_proxy import ThreadLocalProxy
 
 logging_basic_config()
 

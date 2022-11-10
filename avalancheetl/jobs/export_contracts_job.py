@@ -1,5 +1,6 @@
 # MIT License
 #
+# Modifications Copyright (c) Zhassulan Shaikhygali, shaikh.zhas@gmail.com
 # Copyright (c) 2018 Evgeny Medvedev, evge.medvedev@gmail.com
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,13 +24,13 @@
 
 import json
 
-from ethereumetl.executors.batch_work_executor import BatchWorkExecutor
+from avalancheetl.executors.batch_work_executor import BatchWorkExecutor
 from blockchainetl.jobs.base_job import BaseJob
-from ethereumetl.json_rpc_requests import generate_get_code_json_rpc
-from ethereumetl.mappers.contract_mapper import EthContractMapper
+from avalancheetl.json_rpc_requests import generate_get_code_json_rpc
+from avalancheetl.mappers.contract_mapper import EthContractMapper
 
-from ethereumetl.service.eth_contract_service import EthContractService
-from ethereumetl.utils import rpc_response_to_result
+from avalancheetl.service.eth_contract_service import EthContractService
+from avalancheetl.utils import rpc_response_to_result
 
 
 # Exports contracts bytecode

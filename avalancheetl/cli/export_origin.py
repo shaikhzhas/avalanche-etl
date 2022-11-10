@@ -21,14 +21,14 @@
 
 import click
 
-from ethereumetl.web3_utils import build_web3
+from avalancheetl.web3_utils import build_web3
 
 from blockchainetl.logging_utils import logging_basic_config
-from ethereumetl.jobs.export_origin_job import ExportOriginJob
-from ethereumetl.jobs.exporters.origin_exporter import origin_marketplace_listing_item_exporter, origin_shop_product_item_exporter
-from ethereumetl.ipfs.origin import get_origin_ipfs_client
-from ethereumetl.providers.auto import get_provider_from_uri
-from ethereumetl.thread_local_proxy import ThreadLocalProxy
+from avalancheetl.jobs.export_origin_job import ExportOriginJob
+from avalancheetl.jobs.exporters.origin_exporter import origin_marketplace_listing_item_exporter, origin_shop_product_item_exporter
+from avalancheetl.ipfs.origin import get_origin_ipfs_client
+from avalancheetl.providers.auto import get_provider_from_uri
+from avalancheetl.thread_local_proxy import ThreadLocalProxy
 
 logging_basic_config()
 

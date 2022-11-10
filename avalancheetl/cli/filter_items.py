@@ -1,5 +1,6 @@
 # MIT License
 #
+# Modifications Copyright (c) Zhassulan Shaikhygali, shaikh.zhas@gmail.com
 # Copyright (c) 2018 Evgeny Medvedev, evge.medvedev@gmail.com
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,7 +23,7 @@
 
 import click
 
-from ethereumetl import misc_utils
+from avalancheetl import misc_utils
 
 
 @click.command(context_settings=dict(help_option_names=['-h', '--help']))

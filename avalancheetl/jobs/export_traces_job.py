@@ -1,5 +1,6 @@
 # MIT License
 #
+# Modifications Copyright (c) Zhassulan Shaikhygali, shaikh.zhas@gmail.com
 # Copyright (c) 2018 Evgeniy Filatov, evgeniyfilatov@gmail.com
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -21,15 +22,15 @@
 # SOFTWARE.
 import logging
 
-from ethereumetl.executors.batch_work_executor import BatchWorkExecutor
+from avalancheetl.executors.batch_work_executor import BatchWorkExecutor
 from blockchainetl.jobs.base_job import BaseJob
-from ethereumetl.mainnet_daofork_state_changes import DAOFORK_BLOCK_NUMBER
-from ethereumetl.mappers.trace_mapper import EthTraceMapper
-from ethereumetl.service.eth_special_trace_service import EthSpecialTraceService
+from avalancheetl.mainnet_daofork_state_changes import DAOFORK_BLOCK_NUMBER
+from avalancheetl.mappers.trace_mapper import EthTraceMapper
+from avalancheetl.service.eth_special_trace_service import EthSpecialTraceService
 
-from ethereumetl.service.trace_id_calculator import calculate_trace_ids
-from ethereumetl.service.trace_status_calculator import calculate_trace_statuses
-from ethereumetl.utils import validate_range
+from avalancheetl.service.trace_id_calculator import calculate_trace_ids
+from avalancheetl.service.trace_status_calculator import calculate_trace_statuses
+from avalancheetl.utils import validate_range
 
 
 class ExportTracesJob(BaseJob):
