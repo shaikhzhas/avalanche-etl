@@ -24,16 +24,22 @@
 
 import click
 import re
-
 from datetime import datetime, timedelta
+import sys
+import os
 
-from blockchainetl.logging_utils import logging_basic_config
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../avalancheetl')))
+
+print(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from avalancheetl.web3_utils import build_web3
-
 from avalancheetl.jobs.export_all_common import export_all_common
 from avalancheetl.providers.auto import get_provider_from_uri
 from avalancheetl.service.ava_service import AvaService
 from avalancheetl.utils import check_classic_provider_uri
+from blockchainetl.logging_utils import logging_basic_config
+
 
 logging_basic_config()
 
@@ -108,17 +114,24 @@ def get_partitions(start, end, partition_batch_size, provider_uri):
 @click.command(context_settings=dict(help_option_names=['-h', '--help']))
 @click.option('-s', '--start', required=True, type=str, help='Start block/ISO date/Unix time')
 @click.option('-e', '--end', required=True, type=str, help='End block/ISO date/Unix time')
-@click.option('-b', '--partition-batch-size', default=10000, show_default=True, type=int,
-              help='The number of blocks to export in partition.')
-@click.option('-p', '--provider-uri', default='https://mainnet.infura.io', show_default=True, type=str,
-              help='The URI of the web3 provider e.g. '
-                   'file://$HOME/Library/Ethereum/geth.ipc or https://mainnet.infura.io')
+@click.option('-b', '--partition-batch-size', default=10000, show_default=True, type=int, help='The number of blocks to export in partition.')
+@click.option('-p', '--provider-uri', required = True, type=str, help='The URI of the web3 provider e.g. ')
 @click.option('-o', '--output-dir', default='output', show_default=True, type=str, help='Output directory, partitioned in Hive style.')
 @click.option('-w', '--max-workers', default=5, show_default=True, type=int, help='The maximum number of workers.')
 @click.option('-B', '--export-batch-size', default=100, show_default=True, type=int, help='The number of requests in JSON RPC batches.')
-@click.option('-c', '--chain', default='ethereum', show_default=True, type=str, help='The chain network to connect to.')
-def export_all(start, end, partition_batch_size, provider_uri, output_dir, max_workers, export_batch_size,
-               chain='ethereum'):
+@click.option('-c', '--chain', default='avalanche', show_default=True, type=str, help='The chain network to connect to.')
+
+
+def export_all(
+    start,
+    end,
+    partition_batch_size,
+    provider_uri,
+    output_dir,
+    max_workers,
+    export_batch_size,
+    chain='avalanche'
+):
     """Exports all data for a range of blocks."""
     provider_uri = check_classic_provider_uri(chain, provider_uri)
     export_all_common(get_partitions(start, end, partition_batch_size, provider_uri),
