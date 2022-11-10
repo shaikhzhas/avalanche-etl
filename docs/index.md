@@ -14,4 +14,3 @@ Easily export:
 * Receipts
 * Logs
 * Contracts
-* Traces (Internal transactions)
