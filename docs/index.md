@@ -1,10 +1,7 @@
 # Overview
 
-Ethereum ETL lets you convert blockchain data into convenient formats like CSVs and relational databases.
-
-With 1,700+ likes on GitHub, Ethereum ETL is the most popular open source project for Ethereum data.
-
-Data is available for you to query right away in [Google BigQuery](https://goo.gl/oY5BCQ).
+Avalanche ETL lets you convert Avalanche blockchain data into convenient formats like JSONs, CSVs and relational databases.
+This is a fork of [Ethereum ETL](https://github.com/blockchain-etl/ethereum-etl).
 
 ## Features
 
@@ -17,8 +14,4 @@ Easily export:
 * Receipts
 * Logs
 * Contracts
-* Internal transactions
-
-## Projects using Ethereum ETL
-* [Google](https://goo.gl/oY5BCQ) - Public BigQuery Ethereum datasets
-* [Nansen](https://nansen.ai/?ref=ethereumetl) - Analytics platform for Ethereum
+* Traces (Internal transactions)
